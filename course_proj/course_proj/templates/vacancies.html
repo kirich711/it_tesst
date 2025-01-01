@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        {% load static %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/style.css">
+        <!-- <link href="static/css/outline.css" rel="stylesheet">
+        <link href="static/css/outline-settings.css" rel="stylesheet"> -->
+        <title>JVS</title>
+    </head>
+    <body>
+        <header>
+            <h1 class="proj-name">Java Vacancy Statistic</h1>
+        </header>
+        <div class="sidenav">
+		    <a href="/">Главная</a>
+		    <a href="/relevance">Востребованность</a>
+		    <a href="/area">География</a>
+            <a href="/skills">Навыки</a>
+            <a class="active" href="/vacancies">Последние вакансии</a>
+	    </div>
+        <main>
+            <section class="dynamic">
+                <div class="subtitle border">
+                    <h2>Последние 10 вакансий Java-программиста</h2>
+                </div>
+                <ul class = "vac">
+                    {% for vac in data_vac %}
+                    <li>
+                        <div class="subtitle vac">
+                            <div class="vacancy">
+                                <h4 class ="vacname"><a href="{{vac.url}}">{{vac.name}}</a></h4>
+                                <p>Описание: {{vac.description}}</p>`
+                                <p>Навыки: {{vac.key_skills}}</p>
+                                <p>Зарплата: {{vac.salary}} </p>
+                                <p>Компания: {{vac.company}}</p>
+                                <p>Название региона: {{vac.area}}</p>
+                                <p class ="vacdate">От {{vac.date}}</p>
+                            </div>
+                        </div>
+                    </li>ёё
+                    {% endfor %}
+
+                </ul>
+
+            </section>
+
+        </main>
+        <footer>
+            <p>Студент 2-го курса ИРИТ-РТФ УрФУ</p>
+            <p>ФИО: Горшков Эдуард Геннадьевич</p>
+            <p>Группа: РИ-220933</p>
+        </footer>
+    </body>
+</html>

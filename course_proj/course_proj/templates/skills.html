@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        {% load static %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/style.css">
+        <!-- <link href="static/css/outline.css" rel="stylesheet">
+        <link href="static/css/outline-settings.css" rel="stylesheet"> -->
+        <title>JVS</title>
+    </head>
+    <body>
+        <header>
+            <h1 class="proj-name">Backend Vacancy Statistic</h1>
+        </header>
+        <div class="sidenav">
+		    <a href="/">Главная</a>
+		    <a href="/relevance">Востребованность</a>
+		    <a href="/area">География</a>
+            <a class="active" href="/skills">Навыки</a>
+            <a href="/vacancies">Последние вакансии</a>
+	    </div>
+        <main>
+            <section class="dynamic all">
+                <div class="subtitle border">
+                    <h2>Навыки для по годам для всех вакансий</h2>
+                </div>
+                <div class="subtitle">
+                    <h3>График топ-5 навыков</h3>
+                </div>
+                <img class="skill-img shadow" src="static/imgs/skills_all.png" alt="img" width="712" height="400">
+                <div class="subtitle">
+                    <h3>Таблица топ-20 навыков</h3>
+                </div>
+                <div class="dynamic skills">
+                    {% for year, group in data_statskill.items %}
+                    <div class="table-container skills">
+                        <h3>{{ year }} год</h3>
+                        <table class="skills">
+                        <thead >
+                            <tr>
+                                <th>Навык</th>
+                                <th>Количество упоминаний</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for e in group %}
+                                <tr>
+                                    <td>{{ e.skill }}</td>
+                                    <td>{{ e.number }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                    {% endfor %}
+
+                </div>
+                <div class="subtitle border">
+                    <h2>Навыки по годам только для вакансий Backend программиста</h2>
+                </div>
+                <div class="subtitle">
+                    <h3>График топ-5 навыков</h3>
+                </div>
+                <img class="skill-img shadow" src="static/imgs/skills_java.png" alt="img" width="712" height="400">
+                <div class="subtitle">
+                    <h3>Таблица топ-20 навыков</h3>
+                </div>
+                <div class="dynamic skills ">
+                    {% for year, group in data_statskill_vac.items %}
+                    <div class="table-container skills">
+                        <h3>{{ year }} год</h3>
+                        <table class="skills">
+                        <thead >
+                            <tr>
+                                <th>Навык</th>
+                                <th>Количество упоминаний</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for e in group %}
+                                <tr>
+                                    <td>{{ e.skill }}</td>
+                                    <td>{{ e.number }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+
+        </main>
+        <footer>
+            <p>Студент 2-го курса ИРИТ-РТФ УрФУ</p>
+            <p>ФИО: Горшков Эдуард Геннадьевич</p>
+            <p>Группа: РИ-220933</p>
+        </footer>
+    </body>
+</html>
