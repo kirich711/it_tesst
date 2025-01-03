@@ -9,11 +9,11 @@
         <link rel="stylesheet" href="static/css/style.css">
         <!-- <link href="static/css/outline.css" rel="stylesheet">
         <link href="static/css/outline-settings.css" rel="stylesheet"> -->
-        <title>JVS</title>
+        <title>BVS</title>
     </head>
     <body>
         <header>
-            <h1 class="proj-name">Java Vacancy Statistic</h1>
+            <h1 class="proj-name">Backend Vacancy Statistic</h1>
         </header>
         <div class="sidenav">
 		    <a href="/">Главная</a>
@@ -25,7 +25,7 @@
         <main>
             <section class="dynamic">
                 <div class="subtitle border">
-                    <h2>Последние 10 вакансий Java-программиста</h2>
+                    <h2>Последние 10 вакансий Backend-программиста</h2>
                 </div>
                 <ul class = "vac">
                     {% for vac in data_vac %}
@@ -41,7 +41,7 @@
                                 <p class ="vacdate">От {{vac.date}}</p>
                             </div>
                         </div>
-                    </li>ёё
+                    </li>
                     {% endfor %}
 
                 </ul>
