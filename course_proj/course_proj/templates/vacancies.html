@@ -13,7 +13,7 @@
     </head>
     <body>
         <header>
-            <h1 class="proj-name">Backend Statistic</h1>
+            <h1 class="proj-name">Backend Statistics</h1>
         </header>
         <div class="sidenav">
 		    <a href="/">Главная</a>
@@ -28,27 +28,26 @@
                 <div class="subtitle border">
                     <h2>Последние 5 вакансий Backend-программиста</h2>
                 </div>
-                <ul class = "vac">
+                <ul class="vac">
                     {% for vac in data_vac %}
                     <li>
-                        <div class="subtitle vac">
-                            <div class="vacancy">
-                                <h4 class ="vacname"><a href="{{vac.url}}">{{vac.name}}</a></h4>
-                                <p>Описание: {{vac.description}}</p>
-                                <p>Навыки: {{vac.key_skills}}</p>
-                                <p>Компания: {{vac.company}}</p>
-                                <p>Оклад: {{vac.salary}} </p>
-                                <p>Название региона: {{vac.area}}</p>
-                                <p class ="vacdate">От {{vac.date}}</p>
+                        <a href="{{ vac.url }}" class="vac-link">
+                            <div class="subtitle vac">
+                                <div class="vacancy">
+                                    <h4 class="vacname">{{ vac.name }}</h4>
+                                    <p>Описание: {{ vac.description }}</p>
+                                    <p>Навыки: {{ vac.key_skills }}</p>
+                                    <p>Компания: {{ vac.company }}</p>
+                                    <p>Оклад: {{ vac.salary }}</p>
+                                    <p>Название региона: {{ vac.area }}</p>
+                                    <p class="vacdate">От {{ vac.date }}</p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </li>
                     {% endfor %}
-
-                </ul>
-
+                </ul>                
             </section>
-
         </main>
         <footer>
             <p>Студент 2-го курса ИРИТ-РТФ УрФУ</p>
@@ -57,3 +56,16 @@
         </footer>
     </body>
 </html>
+
+<style>
+    .vac-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+    .vac-link:hover {
+        background-color: #f0f0f0;
+    }
+</style>
+
+
