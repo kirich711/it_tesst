@@ -9,14 +9,15 @@
         <link rel="stylesheet" href="static/css/style.css">
         <!-- <link href="static/css/outline.css" rel="stylesheet">
         <link href="static/css/outline-settings.css" rel="stylesheet"> -->
-        <title>BVS</title>
+        <title>BS</title>
     </head>
     <body>
         <header>
-            <h1 class="proj-name">Backend Vacancy Statistic</h1>
+            <h1 class="proj-name">Backend Statistic</h1>
         </header>
         <div class="sidenav">
 		    <a href="/">Главная</a>
+            <a href="/statistics">Общая статистика</a>
 		    <a class="active" href="/relevance">Востребованность</a>
 		    <a href="/area">География</a>
             <a href="/skills">Навыки</a>
@@ -24,40 +25,6 @@
 	    </div>
         <main>
             <section class="dynamic all">
-                <div class="subtitle border">
-                    <h2>Динамика по годам для всех вакансий</h2>
-                </div>
-                <div class="dynamic all  ">
-                    <div class="table-container">
-                        <table class = "margin">
-                            <h3>Таблица средней зарплаты и количества вакансий от года</h3>
-                        <thead >
-                            <tr>
-                                <th class="year">Год    </th>
-                                <th>Средняя з/п, рубль</th>
-                                <th>Количество вакансий</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for e in data_statyear %}
-                                <tr id="answer">
-                                    <td>{{ e.year }}</td>
-                                    <td>{{ e.salary_avg }}</td>
-                                    <td>{{ e.count }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    </div>
-
-                    <div class="imgs">
-                        <h3>График средней зарплаты от года</h3>
-                        <img class="avg_salary shadow" src="static/imgs/avg.png" alt="img" width="480" height="288">
-                        <h3>График количества вакансий от года</h3>
-                        <img class="count shadow" src="static/imgs/count.png" alt="img" width="480" height="288">
-                    </div>
-
-                </div>
                 <div class="subtitle border">
                     <h2>Динамика по годам только для вакансий Backend-программиста</h2>
                 </div>

@@ -80,7 +80,7 @@ def __get_salary(salary_from, salary_to, curr, gross):
 
 def __fromat_date(str_date):
     date_obj = datetime.strptime(str_date, "%Y-%m-%dT%H:%M:%S%z")
-    formatted_date = date_obj.strftime("%Y.%m.%d")
+    formatted_date = date_obj.strftime("%d.%m.%Y")
     return formatted_date
 
 
@@ -133,7 +133,7 @@ def get_top20_vac():
     params = {
         "text": f"name:(({' OR '.join(keywords)}) AND (Разработчик OR Программист)) AND description:(({' OR '.join(keywords)}) AND NOT JavaScript)",
         "date_from": today.isoformat(),
-        "per_page": 10,
+        "per_page": 5,
         "order_by": "publication_time"
     }
     response = requests.get(url, params=params)
@@ -148,6 +148,9 @@ def get_top20_vac():
 
             vacancy_id = vacancy.get("id")
             description, key_skills = __get_vacancy_description_and_skills(vacancy_id)
+            
+            if __clearString(description)[200] == ' ':
+                __clearString(description)[200] == ''
 
             vacancy["description"] = __clearString(description)[:200] + "..."
             vacancy["key_skills"] = __split_key_skills(key_skills)

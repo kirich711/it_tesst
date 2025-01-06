@@ -9,14 +9,15 @@
         <link rel="stylesheet" href="static/css/style.css">
         <!-- <link href="static/css/outline.css" rel="stylesheet">
         <link href="static/css/outline-settings.css" rel="stylesheet"> -->
-        <title>BVS</title>
+        <title>BS</title>
     </head>
     <body>
         <header>
-            <h1 class="proj-name">Backend Vacancy Statistic</h1>
+            <h1 class="proj-name">Backend Statistic</h1>
         </header>
         <div class="sidenav">
 		    <a href="/">Главная</a>
+            <a href="/statistics">Общая статистика</a>
 		    <a href="/relevance">Востребованность</a>
 		    <a class="active" href="/area">География</a>
             <a href="/skills">Навыки</a>
@@ -24,57 +25,6 @@
 	    </div>
         <main>
             <section class="dynamic all">
-                <div class="subtitle border">
-                    <h2>Статистика по городам для всех вакансий</h2>
-                </div>
-                <div class="dynamic area">
-                    <div class="table-container">
-                        <table class = "margin">
-                            <h3>Таблица средней з/п от города</h3>
-                        <thead >
-                            <tr>
-                                <th class="year">Город</th>
-                                <th>Средняя з/п, рубль</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for e in data_statcity_salary %}
-                                <tr>
-                                    <td>{{ e.city }}</td>
-                                    <td>{{ e.salary_avg }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    </div>
-                    <div class="table-container">
-                        <table class = "margin">
-                            <h3>Таблица процента вакансий от города</h3>
-                        <thead >
-                            <tr>
-                                <th class="year">Город</th>
-                                <th>Процент вакансий</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for e in data_statcity_percent %}
-                                <tr>
-                                    <td>{{ e.city }}</td>
-                                    <td>{{ e.percent }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    </div>
-
-                    <div class="imgs">
-                        <h3>График средней з/п от города</h3>
-                        <img class="avg_salary shadow" src="static/imgs/avg_city.png" alt="img" width="480" height="288">
-                        <h3>График процента вакансий от города</h3>
-                        <img class="count shadow" src="static/imgs/percent_city.png" alt="img" width="480" height="288">
-                    </div>
-
-                </div>
                 <div class="subtitle border">
                     <h2>Статистика по городам только для вакансии Backend-программист</h2>
                 </div>

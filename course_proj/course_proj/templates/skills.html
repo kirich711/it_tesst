@@ -9,14 +9,15 @@
         <link rel="stylesheet" href="static/css/style.css">
         <!-- <link href="static/css/outline.css" rel="stylesheet">
         <link href="static/css/outline-settings.css" rel="stylesheet"> -->
-        <title>BVS</title>
+        <title>BS</title>
     </head>
     <body>
         <header>
-            <h1 class="proj-name">Backend Vacancy Statistic</h1>
+            <h1 class="proj-name">Backend Statistic</h1>
         </header>
         <div class="sidenav">
 		    <a href="/">Главная</a>
+            <a href="/statistics">Общая статистика</a>
 		    <a href="/relevance">Востребованность</a>
 		    <a href="/area">География</a>
             <a class="active" href="/skills">Навыки</a>
@@ -30,7 +31,7 @@
                 <div class="subtitle">
                     <h3>График топ-5 навыков</h3>
                 </div>
-                <img class="skill-img shadow" src="static/imgs/skills_all.png" alt="img" width="480" height="288">
+                <img class="skill-img shadow" src="static/imgs/skills_back.png" alt="img" width="480" height="288">
                 <div class="subtitle">
                     <h3>Таблица топ-20 навыков</h3>
                 </div>
@@ -56,44 +57,8 @@
                     </table>
                     </div>
                     {% endfor %}
-
-                </div>
-                <div class="subtitle border">
-                    <h2>Навыки для по годам для всех вакансий</h2>
-                </div>
-                <div class="subtitle">
-                    <h3>График топ-5 навыков</h3>
-                </div>
-                <img class="skill-img shadow" src="static/imgs/skills_back.png" alt="img" width="480" height="288">
-                <div class="subtitle">
-                    <h3>Таблица топ-20 навыков</h3>
-                </div>
-                <div class="dynamic skills ">
-                    {% for year, group in data_statskill_vac.items %}
-                    <div class="table-container skills">
-                        <h3>{{ year }} год</h3>
-                        <table class="skills">
-                        <thead >
-                            <tr>
-                                <th>Навык</th>
-                                <th>Количество упоминаний</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for e in group %}
-                                <tr>
-                                    <td>{{ e.skill }}</td>
-                                    <td>{{ e.number }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    </div>
-                    {% endfor %}
                 </div>
             </section>
-
-
         </main>
         <footer>
             <p>Студент 2-го курса ИРИТ-РТФ УрФУ</p>

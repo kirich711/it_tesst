@@ -9,14 +9,15 @@
         <link rel="stylesheet" href="static/css/style.css">
         <!-- <link href="static/css/outline.css" rel="stylesheet">
         <link href="static/css/outline-settings.css" rel="stylesheet"> -->
-        <title>BVS</title>
+        <title>BS</title>
     </head>
     <body>
         <header>
-            <h1 class="proj-name">Backend Vacancy Statistic</h1>
+            <h1 class="proj-name">Backend Statistic</h1>
         </header>
         <div class="sidenav">
 		    <a href="/">Главная</a>
+            <a href="/statistics">Общая статистика</a>
 		    <a href="/relevance">Востребованность</a>
 		    <a href="/area">География</a>
             <a href="/skills">Навыки</a>
@@ -25,7 +26,7 @@
         <main>
             <section class="dynamic">
                 <div class="subtitle border">
-                    <h2>Последние 10 вакансий Backend-программиста</h2>
+                    <h2>Последние 5 вакансий Backend-программиста</h2>
                 </div>
                 <ul class = "vac">
                     {% for vac in data_vac %}
@@ -33,10 +34,10 @@
                         <div class="subtitle vac">
                             <div class="vacancy">
                                 <h4 class ="vacname"><a href="{{vac.url}}">{{vac.name}}</a></h4>
-                                <p>Описание: {{vac.description}}</p>`
+                                <p>Описание: {{vac.description}}</p>
                                 <p>Навыки: {{vac.key_skills}}</p>
-                                <p>Зарплата: {{vac.salary}} </p>
                                 <p>Компания: {{vac.company}}</p>
+                                <p>Оклад: {{vac.salary}} </p>
                                 <p>Название региона: {{vac.area}}</p>
                                 <p class ="vacdate">От {{vac.date}}</p>
                             </div>
